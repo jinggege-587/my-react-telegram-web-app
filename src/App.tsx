@@ -9,11 +9,11 @@ function App() {
   const [count, setCount] = useState(0)
   const [data, setData] = useState();
 
-  const getData:any = ()=>{
-    fetch('https://api.github.com/users/ruanyf').then((res: any)=>{
+  const getData = ()=>{
+    fetch('https://api.github.com/users/ruanyf').then((res)=>{
       if(res.status === 200){
         //json是返回的response提供的一个方法,会把返回的json字符串反序列化成对象,也被包装成一个Promise了
-        res.json().then((json:any)=>{
+        res.json().then((json)=>{
           console.log('res: ', json)
           setData(json);
         })
@@ -53,7 +53,3 @@ function App() {
 }
 
 export default App
-
-function res(value: Response): Response | PromiseLike<Response> {
-  throw new Error('Function not implemented.')
-}
