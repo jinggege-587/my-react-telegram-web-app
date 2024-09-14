@@ -9,6 +9,25 @@
   </head>
   <body>
     <div id="root"></div>
+    <p id="user-info"></p>
+
+    <script>
+        // 初始化 Telegram Web App
+        Telegram.WebApp.ready();
+
+        // 获取用户信息
+        const user = Telegram.WebApp.initDataUnsafe?.user;
+
+        if (user) {
+            document.getElementById('user-info').innerText = 
+                `Hello, ${user.first_name} ${user.last_name}, your username is @${user.username} and your ID is ${user.id}.`;
+        } else {
+            document.getElementById('user-info').innerText = "Unable to retrieve user information.";
+        }
+
+        // 可以添加更多的 Web App 功能和交互
+    </script>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
