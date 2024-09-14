@@ -11,7 +11,7 @@ function App() {
   const [data, setData] = useState();
 
   const getData = ()=>{
-    fetch('https://api.github.com/users/ruanyf').then((res)=>{
+    fetch('https://api.telegram.org/bot7498712718:AAGQ0ncMXgJt2hHBn_rpB90a3xDLjWlh4fQ/getMe').then((res)=>{
       if(res.status === 200){
         //json是返回的response提供的一个方法,会把返回的json字符串反序列化成对象,也被包装成一个Promise了
         res.json().then((json)=>{
