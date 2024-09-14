@@ -26,16 +26,6 @@ function App() {
   }
 
   // bot.start();
-
-  const [data0, setData0] = useState();
-  const [data1, setData1] = useState();
-  const btn0 = () =>{
-    setData0(window.Telegram.WebApp)
-  }
-  const btn1 = () =>{
-    setData1(window.Telegram.WebAppUser());
-  }
-
   return (
     <>
       <div>
@@ -52,11 +42,9 @@ function App() {
           count is {count}
         </button>
       </div>
+      <p>111</p>
       <button onClick={()=>getData()}>getData</button>
-      <button onClick={()=>btn0()}>btn0</button>
-      <p>data0 { JSON.stringify(data0) }</p>
-      <button onClick={()=>btn1()}>btn1</button>
-      <p>data1 { JSON.stringify(data1) }</p>
+      <p>111</p>
         {/* Here we add our button with alert callback */}
       <div className="card">
         <button onClick={() => WebApp.showAlert(`Hello World! Current count is ${count}`)}>
