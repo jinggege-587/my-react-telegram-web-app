@@ -1,7 +1,7 @@
 /*
  * @Author: jhy
  * @Date: 2024-09-14 16:43:19
- * @LastEditTime: 2024-09-14 16:43:34
+ * @LastEditTime: 2024-09-14 16:55:39
  * @LastEditors: jhy
  * @Description: 
  * @FilePath: /geyi/my-react-telegram-web-app1/src/TutorialBot.ts
@@ -13,7 +13,7 @@ import { Bot, InlineKeyboard } from "grammy";
 let screaming = false;
 
 //Create a new bot
-const bot = new Bot("<7498712718:AAGQ0ncMXgJt2hHBn_rpB90a3xDLjWlh4fQ>");
+const bot = new Bot("7498712718:AAGQ0ncMXgJt2hHBn_rpB90a3xDLjWlh4fQ");
 
 
 
@@ -90,6 +90,6 @@ bot.on("message", async (ctx) => {
 });
 
 //Start the Bot
-// bot.start();
+bot.start();
 
-export default bot;
+// export default bot;
