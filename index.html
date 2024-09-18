@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,24 +10,58 @@
   <body>
     <div id="root"></div>
     <p id="user-info"></p>
+    <button id="send-button">Send Message</button>
 
     <script>
-        // 初始化 Telegram Web App
-        Telegram.WebApp.ready();
+      // 初始化 Telegram Web App
+      Telegram.WebApp.ready();
 
-        // 获取用户信息
-        const user = Telegram.WebApp.initDataUnsafe?.user;
+      // 获取用户信息
+      const user = Telegram.WebApp.initDataUnsafe?.user;
 
-        if (user) {
-            document.getElementById('user-info').innerText = 
-                `Hello, ${user.first_name} ${user.last_name}, your username is @${user.username} and your ID is ${user.id}.`;
-        } else {
-            document.getElementById('user-info').innerText = "Unable to retrieve user information.";
-        }
+      if (user) {
+        document.getElementById(
+          "user-info"
+        ).innerText = `Hello, ${user.first_name} ${user.last_name}, your username is @${user.username} and your ID is ${user.id}.`;
+      } else {
+        document.getElementById("user-info").innerText =
+          "Unable to retrieve user information.";
+      }
 
-        // 可以添加更多的 Web App 功能和交互
+      // 可以添加更多的 Web App 功能和交互
+
+      // 使用 Telegram Bot API 执行操作
+      function sendMessage(text) {
+        fetch(
+          `https://api.telegram.org/bot7498712718:AAGQ0ncMXgJt2hHBn_rpB90a3xDLjWlh4fQ/sendMessage`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              chat_id: "5710946345",
+              text: text,
+            }),
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .catch((error) => console.error("Error:", error));
+      }
+
+      // 示例：点击按钮时发送消息
+      document.getElementById("send-button").addEventListener("click", () => {
+        sendMessage("Hello from Web App!");
+      });
     </script>
 
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Eruda is console for mobile browsers -->
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>
+      eruda.init();
+    </script>
   </body>
 </html>
